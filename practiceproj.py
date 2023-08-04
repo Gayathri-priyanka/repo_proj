@@ -47,7 +47,7 @@ def guess_game():
                 if(guess_num<rand_num):
                     print("Try entering some higher num: ")
                 
-                if(guess_num>rand_num):
+                elif(guess_num>rand_num):
                     print("Try entering some lower num: ")
                 
                 else:
