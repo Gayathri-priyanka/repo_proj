@@ -18,11 +18,18 @@ def difficulty_level():
        
 def guess_game():
     while True:
-        lower_bound=int(input("enter the LOWER bound for your game: "))
-        upper_bound=int(input("enter the UPPER bound for your game: "))
+        difficulty=difficulty_level()
+        if difficulty==1:
+            lower_bound,upper_bound,max_attempts=1,5,2
+        elif difficulty==2:
+            lower_bound,upper_bound,max_attempts=1,10,3
+        else:
+            lower_bound,upper_bound,max_attempts=1,20,5
+
+
         rand_num=random.randint(lower_bound,upper_bound)
         attempts=0
-        max_attempts=5
+       
         while attempts<max_attempts:
             try:
                 guess_num=int(input(f'enter a number beatween {lower_bound} and {upper_bound} :'))
@@ -35,16 +42,17 @@ def guess_game():
 
             if guess_num<lower_bound or guess_num>upper_bound:
                 print(f"you number is not in the range of {lower_bound} and {upper_bound} ")
-            elif(guess_num<rand_num):
-                print("Try entering some higher num: ")
-                attempts+=1
-            elif(guess_num>rand_num):
-                print("Try entering some lower num: ")
-                attempts+=1
             else:
-                print(f"Congrats!You won nothing for guessing correct num{rand_num}")
                 attempts+=1
-                break
+                if(guess_num<rand_num):
+                    print("Try entering some higher num: ")
+                
+                if(guess_num>rand_num):
+                    print("Try entering some lower num: ")
+                
+                else:
+                    print(f"Congrats!You won nothing for guessing correct num{rand_num}")
+                    break
             
         print(f'total attempts: {attempts}')
         play_again=input("If you want to play again? (yes/y):  ").lower()
