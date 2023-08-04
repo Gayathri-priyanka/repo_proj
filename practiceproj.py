@@ -1,4 +1,12 @@
 import random
+#difficlty level
+def difficulty_level():
+    while True:
+        print("Choose a difficulty level:")
+        print("1. Easy level- Range:1-5, attempts:2")
+        print("2. Intermediate level- Range:1-10, attempts:3")
+        print("3. Hard level- Range:1-20, attempts:5")
+       
 def guess_game():
     while True:
         lower_bound=int(input("enter the LOWER bound for your game: "))
