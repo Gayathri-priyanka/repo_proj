@@ -6,6 +6,15 @@ def difficulty_level():
         print("1. Easy level- Range:1-5, attempts:2")
         print("2. Intermediate level- Range:1-10, attempts:3")
         print("3. Hard level- Range:1-20, attempts:5")
+        try:
+            choice=int(input("Enter difficulty level of your choice-(1|2|3): "))
+            if choice in [1,2,3]:
+                return choice
+            else:
+                print("Enter a valid number from1,2,3 ")
+        except:
+            print("Invalid difficulty levelll ")
+
        
 def guess_game():
     while True:
