@@ -12,6 +12,8 @@ class GuessGUI:
         self.difficulty_label=tk.Label(root,text="Select Difficulty")
         self.difficulty_label.pack()
         self.difficulty_radios=[("Easy","1"),("Intermediate","2"),("Hard","3")]
+        for text, value in self.difficulty_radios:
+            tk.Radiobutton(root, text=text, variable=self.difficulty_var, value=value).pack(anchor=tk.W)
 # def difficulty_level():
 #     while True:
 #         print("Choose a difficulty level:")
