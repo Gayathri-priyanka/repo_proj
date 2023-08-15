@@ -1,4 +1,6 @@
 import random
+import tkinter as tk
+from tkinter import messagebox
 #using Tkinter GUI 
 #difficlty level
 def difficulty_level():
