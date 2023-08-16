@@ -51,6 +51,21 @@ class GuessGUI:
          self.start_game()
         def update_attempts_label(self):
             self.attempts_label.config(text=f"Total attempts: {self.attempts}/{self.max_attempts}")
+        def check_guess(self, guess_num):
+            self.attempts += 1
+            if guess_num < self.rand_num:
+                self.output_label.config(text="Try entering some higher number.")
+            elif guess_num > self.rand_num:
+                self.output_label.config(text="Try entering some lower number.")
+            else:
+                self.output_label.config(text=f"Congratulations! You won! The correct number was {self.rand_num}")
+                self.play_again_button.config(state=tk.NORMAL)
+
+            self.update_attempts_label()
+
+            if self.attempts >= self.max_attempts:
+                self.output_label.config(text=f"Sorry, you've reached the maximum number of attempts. The correct number was {self.rand_num}")
+                self.play_again_button.config(state=tk.NORMAL)
 
 
 # def difficulty_level():
