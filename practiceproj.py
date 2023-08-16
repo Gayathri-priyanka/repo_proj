@@ -23,6 +23,23 @@ class GuessGUI:
         self.play_again_button = tk.Button(root, text="Play Again", command=self.play_again)
         self.play_again_button.pack()
         self.play_again_button.config(state=tk.DISABLED)
+        self.rand_num = None
+        self.max_attempts = 0
+        self.attempts = 0
+        def start_game(self):
+            difficulty = int(self.difficulty_var.get())
+            if difficulty == 1:
+                self.max_attempts = 2
+                lower_bound, upper_bound = 1, 5
+            elif difficulty == 2:
+                self.max_attempts = 3
+                lower_bound, upper_bound = 1, 10
+            else:
+             self.max_attempts = 5
+            lower_bound, upper_bound = 1, 20
+
+            self.rand_num = random.randint(lower_bound, upper_bound)
+            self.attempts = 0
 
 # def difficulty_level():
 #     while True:
