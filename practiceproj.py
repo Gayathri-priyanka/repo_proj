@@ -40,6 +40,18 @@ class GuessGUI:
 
             self.rand_num = random.randint(lower_bound, upper_bound)
             self.attempts = 0
+            self.start_button.config(state=tk.DISABLED)
+            self.play_again_button.config(state=tk.DISABLED)
+            self.output_label.config(text="")
+            self.attempts_label.config(text="")
+            
+            self.update_attempts_label()
+
+        def play_again(self):
+         self.start_game()
+        def update_attempts_label(self):
+            self.attempts_label.config(text=f"Total attempts: {self.attempts}/{self.max_attempts}")
+
 
 # def difficulty_level():
 #     while True:
